@@ -10,5 +10,4 @@ Build and Install:
  5. $ sudo cp -r build/Release/HoRNDIS.kext /System/Library/Extensions/
  6. $ sudo chmod -R 755 /System/Library/Extensions/HoRNDIS.kext/
  7. $ sudo chown -R root:wheel /System/Library/Extensions/HoRNDIS.kext/
- 8. Just to be sure the kext gets loaded
-    $ sudo reboot
+ 8. $ sudo kextload /System/Library/Extensions/HoRNDIS.kext/
