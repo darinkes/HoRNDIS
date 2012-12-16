@@ -28,7 +28,7 @@
 
 #include "HoRNDIS.h"
 
-#define MYNAME "HoRNDIS"
+#define MYNAME "HoRNDIS-Patched"
 #define V_DEBUG 0
 #define V_NOTE 1
 #define V_ERROR 2
@@ -45,7 +45,7 @@ OSDefineMetaClassAndStructors(HoRNDISInterface, IOEthernetInterface);
 bool HoRNDIS::init(OSDictionary *properties) {
 	int i;
 
-	LOG(V_NOTE, "HoRNDIS tethering driver for Snow Leopard+, by Joshua Wise");
+	LOG(V_NOTE, "HoRNDIS tethering driver for Snow Leopard+, by Joshua Wise (with adjustments by srinkes@)");
 	
 	if (super::init(properties) == false) {
 		LOG(V_ERROR, "initialize super failed");
@@ -86,7 +86,7 @@ bool HoRNDISUSBInterface::start(IOService *provider) {
 }
 
 bool HoRNDIS::start(IOService *provider) {
-		LOG(V_DEBUG, "starting up");
+	LOG(V_DEBUG, "starting up");
 	if(!super::start(provider))
 		return false;
 
