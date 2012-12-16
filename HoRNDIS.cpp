@@ -867,7 +867,7 @@ int HoRNDIS::rndisCommand(struct rndis_msg_hdr *buf, int buflen) {
 		
 		IOSleep(20);
 	}
-	if (count == 10) {
+	if (count == 30) {
 		LOG(V_ERROR, "command timed out?");
 		rc = kIOReturnTimeout;
 	}
