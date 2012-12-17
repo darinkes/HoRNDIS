@@ -814,7 +814,7 @@ int HoRNDIS::rndisCommand(struct rndis_msg_hdr *buf, int buflen) {
 	/* Linux polls on the status channel, too; hopefully this shouldn't be needed if we're just talking to Android. */
 	
 	/* Now we wait around a while for the device to get back to us. */
-	for (count = 0; count < 30; count++) {
+	for (count = 0; count < 60; count++) {
 		struct rndis_msg_hdr *inbuf = (struct rndis_msg_hdr *) rxdsc->getBytesNoCopy();
 		IOUSBDevRequestDesc rxrq;
 		
@@ -831,7 +831,7 @@ int HoRNDIS::rndisCommand(struct rndis_msg_hdr *buf, int buflen) {
 		
 		if (rxrq.wLenDone < 8) {
 			LOG(V_ERROR, "short read on control request?");
-			IOSleep(20);
+			IOSleep(40);
 			continue;
 		}
 		
@@ -865,7 +865,7 @@ int HoRNDIS::rndisCommand(struct rndis_msg_hdr *buf, int buflen) {
 			}
 		}
 		
-		IOSleep(20);
+		IOSleep(40);
 	}
 	if (count == 30) {
 		LOG(V_ERROR, "command timed out?");
